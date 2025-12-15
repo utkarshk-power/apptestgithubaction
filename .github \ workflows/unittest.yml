@@ -18,13 +18,18 @@ jobs:   # jobs keyword defines the jobs to be run in the workflow
     # Step-1: Checkout code from repository
       - name: Checkout code  # Name of the step   
         uses: actions/checkout@v2  # This is a pre-defined action to checkout code from the repository. It can be tested.
+
+      - name: Debug repo structure
+        run: |
+          pwd
+          ls -R
+
     # Step-2: Set up Python environment
       - name: Setup Python
         uses: actions/setup-python@v2 # This is a pre-defined action to setup Python environment
         with:
           python-version: '3.8'  # Specify the Python version to be used
     # Step-3: Install dependencies
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -33,6 +38,8 @@ jobs:   # jobs keyword defines the jobs to be run in the workflow
     # As soon as we come to this step, pytest will look for all the test_*.py files and run the test cases defined in those files
       - name: Run tests
         run: pytest
+
+
 
 
 
