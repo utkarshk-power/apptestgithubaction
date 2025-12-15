@@ -3,4 +3,5 @@ def add(a,b):
     return sum
 def subtract(a,b):
     diff = a-b
+    print(diff)
     return diff
